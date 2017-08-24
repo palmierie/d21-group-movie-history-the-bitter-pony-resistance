@@ -4,27 +4,28 @@
 
     <meta charset="UTF-8">
     <title>Movie History (The Bitter Pony Resistance)</title>
-    <link rel="stylesheet" href="main.css"> 
+    <link rel="stylesheet" href="css/main.css"> 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 
 </head>
 <body>
     
     
-    <nav class="navbar navbar-light bg-light justify-content-between">
+    <nav class="navbar navbar-dark bg-dark" style="color: #ffffff;" >
 
         <a class="navbar-brand">The Bitter Pony Resistance</a>
 
-        <div class="form-inline">
+        <div class="form-flex">
+
             <input class="mr-sm-4" type="text" size="80" placeholder="Search" aria-label="Search">
 
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Find Movies</button>
+            <button class="btn btn-outline-success my-2 my-sm-0" id="findMovie" type="submit">Find Movies</button>
 
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search My Movies</button>
+            <button class="btn btn-outline-success my-2 my-sm-0" id="searchMyMovies" type="submit">Search My Movies</button>
 
-            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Login</button>
+            <button class="btn btn-outline-primary my-2 my-sm-0" id="loginBtn" type="submit">Login</button>
 
-            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Logout</button>
+            <button class="btn btn-outline-primary my-2 my-sm-0" id="logoutBtn" type="submit">Logout</button>
 
         </div>
 
