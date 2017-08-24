@@ -1,11 +1,8 @@
 "use strict";
 
-// require("./searchAPI");
-// require("./api-interaction");
+require("./api-interaction");
 
 var callAPI = require("./api-interaction");
-
-
 
 console.log("something is working!");
 let searchString = "lord%20of%20the";
