@@ -1,3 +1,8 @@
+"use strict";
+
+// require("./searchAPI");
+// require("./api-interaction");
+
 var callAPI = require("./api-interaction");
 
 
