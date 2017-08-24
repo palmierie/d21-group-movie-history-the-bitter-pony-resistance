@@ -6,17 +6,15 @@
 
 function searchMoviesAPI(searchString) {
 	return new Promise((resolve, reject) => {
-		console.log("what is the URL?", `${firebase.getFBsettings().databaseURL}/songs.json?orderBy="uid"&equalTo="${user}"`);
+		console.log("what is the URL?", `https://api.themoviedb.org/3/search/movie?api_key=4542105ab96b56ba20c973e344b4ac55&language=en-US&query=${searchString}&page=1&include_adult=false`);
 		$.ajax({
-			url: `${firebase.getFBsettings().databaseURL}/songs.json?orderBy="uid"&equalTo="${user}"`
-		}).done((songData) => {
-			resolve(songData);
+			url: `https://api.themoviedb.org/3/search/movie?api_key=4542105ab96b56ba20c973e344b4ac55&language=en-US&query=${searchString}&page=1&include_adult=false`
+		}).done((movieData) => {
+			resolve(movieData);
 		});
 	});
 }
 
 
 
-module.exports = {
- 
-};
+module.exports = searchMoviesAPI;
