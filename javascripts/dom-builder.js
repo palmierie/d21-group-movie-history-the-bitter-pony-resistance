@@ -6,6 +6,9 @@ console.log("dom-builder.js loaded");
 
 function makeMovieCards(moviesArr) {
     //for each movie object in array, build a card
+
+  $("#cardHolder").html("");
+
   for (let i = 0; i < moviesArr.length; i++) {
     // convert cast array of each movie into a string w/ commas and spaces (unless last cast member in array)
     let thisCastArr = moviesArr[i].cast;
@@ -27,6 +30,7 @@ function makeMovieCards(moviesArr) {
 
     // $("#cardHolder").append("TEST THIS");
     
+
     $("#cardHolder").append(`<div class="moovie col-sm-4">
                                   <div class="card" id="${moviesArr.id}">
                                       <img class="card-img-top" src="${moviesArr[i].posterURL}" alt="Card image cap">
