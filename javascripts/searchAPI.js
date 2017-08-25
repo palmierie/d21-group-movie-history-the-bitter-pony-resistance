@@ -28,9 +28,15 @@ function submitAPISearch(searchString) {
 			let movieObject = {};
 			movieObject.id = value.id;
 			movieObject.title = value.original_title;
+
+			if(value.poster_path) {
 			movieObject.posterURL = "https://image.tmdb.org/t/p/w185" + value.poster_path;
+			} else {
+			movieObject.posterURL = "img/falloutvaultboythumbsup.jpg";
+			}
+
 			movieObject.overview = value.overview;
-			movieObject.release_date = value.release_date;
+			movieObject.release_date = value.release_date.slice(0, 4);
 			movieArray.push(movieObject);
 		});
 

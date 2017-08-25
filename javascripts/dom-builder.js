@@ -35,9 +35,9 @@ function makeMovieCards(moviesArr) {
                                   <div class="card" id="${moviesArr.id}">
                                       <img class="card-img-top" src="${moviesArr[i].posterURL}" alt="Card image cap">
                                       <h4 class="card-title">${moviesArr[i].title}</h4>
-                                      <h6 class="card-subtitle mb-2 text-muted">Staring: ${thisCast}</h6>
-                                      <p class="DT card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                      <p class="card-text">${moviesArr.release_date}</p>
+                                      <h6 class="card-subtitle mb-2 text-muted">Starring: ${thisCast}</h6>
+                                      <p class="DT card-text">${moviesArr[i].overview}</p>
+                                      <p class="card-text">${moviesArr[i].release_date}</p>
                                       <a href="#" class="breadcrumb card-link">Remove From Watchlist</a>
                                       <a class="hidden rateYo card-link breadcrumb" style="margin:auto"></a>
                                   </div>
