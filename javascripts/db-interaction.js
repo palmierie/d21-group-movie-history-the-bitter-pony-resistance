@@ -3,6 +3,10 @@
 // It is only concerned with getting and setting data in the db
 
 let firebase = require("./firebaseConfig");
+let main = require("./main.js");
+let searchAPI = require("./searchAPI.js");
+
+console.log("searchAPI.testvariable", searchAPI.testvariable);
 
 
 function getMovies(user) {
@@ -24,7 +28,8 @@ function getLast(id) {
     
 }
 
-function saveMovie() {
+function saveMovie(id) {
+
 
 }
 

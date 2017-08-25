@@ -4,20 +4,22 @@
 
 var callAPI = require("./api-interaction");
 let domBuilder = require("./dom-builder.js");
+let testvariable = ["testing this NOW", "and again"];
 
+let apiMovieArray = [];
 // console.log("something is working!");
 // let searchString = "lord%20of%20the";
 function submitAPISearch(searchString) {
 	// searchString = "star%20wars";
 
-	console.log("searchString", searchString);
+	// console.log("searchString", searchString);
 	// let searchResults = callAPI.searchMoviesAPI(searchString);
 	// console.log("searchResults", searchResults);
 
 	// module.exports = callAPI;
 	// console.log("callAPI", callAPI);
 
-	let movieArray = [];
+	
 
 	callAPI.searchMoviesAPI(searchString)
 	.then((searchResults) => {
@@ -37,18 +39,18 @@ function submitAPISearch(searchString) {
 
 			movieObject.overview = value.overview;
 			movieObject.release_date = value.release_date.slice(0, 4);
-			movieArray.push(movieObject);
+			apiMovieArray.push(movieObject);
 		});
 
-		console.log("movieArray", movieArray);
-		return movieArray;
+		// console.log("apiMovieArray", apiMovieArray);
+		return apiMovieArray;
 
 	})
-	.then((movieArray) => {
+	.then((apiMovieArray) => {
 
 	var promises = [];
-	for (var i in movieArray) {
-		promises.push(callAPI.getCastAPI(movieArray[i].id));
+	for (var i in apiMovieArray) {
+		promises.push(callAPI.getCastAPI(apiMovieArray[i].id));
 	}
 
 	// Promise.all(promises.map((promise) => promise.catch((error) => error)))
@@ -56,7 +58,7 @@ function submitAPISearch(searchString) {
 	.then((creditsArray) => {
 
 
-		console.log("creditsArray", creditsArray);
+		// console.log("creditsArray", creditsArray);
 
 		let castNames = [];
 
@@ -83,29 +85,29 @@ function submitAPISearch(searchString) {
 			castNames.push(eachMovieNames);
 		});
 
-		console.log("castNames at end of loop", castNames);
+		// console.log("castNames at end of loop", castNames);
 
-		for (var k in movieArray) {
-			movieArray[k].cast = castNames[k];
+		for (var k in apiMovieArray) {
+			apiMovieArray[k].cast = castNames[k];
 		}
 
 
-		console.log("movieArray after addition of cast names:", movieArray);
+		// console.log("apiMovieArray after addition of cast names:", apiMovieArray);
 
-		domBuilder.makeMovieCards(movieArray);
+		domBuilder.makeMovieCards(apiMovieArray);
 
 	})
 	.catch((error) => console.log(error));
 
 
 	});
-	// .then((movieArray) => {
+	// .then((apiMovieArray) => {
 
-	// 	console.log("movieArray right before dom print", movieArray);
+	// 	console.log("apiMovieArray right before dom print", apiMovieArray);
 	// // domBuilder.makeMovieCards(searchAPI.submitAPISearch(input)))
 
 
 	
 }
 
-module.exports = {submitAPISearch};
+module.exports = {submitAPISearch, apiMovieArray, testvariable};

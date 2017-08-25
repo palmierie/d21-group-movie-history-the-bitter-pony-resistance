@@ -26,19 +26,20 @@ function makeMovieCards(moviesArr) {
         // console.log("thisCast", thisCast);
 
     }
-    console.log("thisCast", thisCast);
+    // console.log("thisCast", thisCast);
 
     // $("#cardHolder").append("TEST THIS");
     
 
-    $("#cardHolder").append(`<div class="moovie col-sm-4">
-                                  <div class="card" id="${moviesArr.id}">
+    $("#cardHolder").append(`<div class="moovie col-sm-4" id="${moviesArr[i].id}">
+                                  <div class="card">
                                       <img class="card-img-top" src="${moviesArr[i].posterURL}" alt="Card image cap">
                                       <h4 class="card-title">${moviesArr[i].title}</h4>
                                       <h6 class="card-subtitle mb-2 text-muted">Starring: ${thisCast}</h6>
                                       <p class="DT card-text">${moviesArr[i].overview}</p>
                                       <p class="card-text">${moviesArr[i].release_date}</p>
-                                      <a href="#" class="breadcrumb card-link">Remove From Watchlist</a>
+                                      <a href="#" class="breadcrumb hidden card-link">Remove From Watchlist</a>
+                                      <a href="#" class="add-to-watchlist breadcrumb card-link">Add To Watchlist</a>
                                       <a class="hidden rateYo card-link breadcrumb" style="margin:auto"></a>
                                   </div>
 
