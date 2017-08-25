@@ -7,7 +7,7 @@ var callAPI = require("./api-interaction");
 // console.log("something is working!");
 // let searchString = "lord%20of%20the";
 function submitAPISearch(searchString) {
-	searchString = "terminator";
+	// searchString = "star%20wars";
 
 	console.log("searchString", searchString);
 	// let searchResults = callAPI.searchMoviesAPI(searchString);
@@ -44,7 +44,8 @@ function submitAPISearch(searchString) {
 		promises.push(callAPI.getCastAPI(movieArray[i].id));
 	}
 
-	Promise.all(promises).then((creditsArray) => {
+	Promise.all(promises.map(promise => promise.catch(error => error)))
+	.then((creditsArray) => {
 
 
 		// console.log("creditsArray", creditsArray);
@@ -82,7 +83,10 @@ function submitAPISearch(searchString) {
 
 
 		console.log("movieArray after addition of cast names:", movieArray);
-	});
+	})
+	.catch(error => console.log(error));
 
 	});
 }
+
+module.exports = {submitAPISearch};
