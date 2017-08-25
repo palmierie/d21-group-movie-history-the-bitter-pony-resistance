@@ -44,7 +44,7 @@ function submitAPISearch(searchString) {
 		promises.push(callAPI.getCastAPI(movieArray[i].id));
 	}
 
-	Promise.all(promises.map(promise => promise.catch(error => error)))
+	Promise.all(promises.map((promise) => promise.catch((error) => error)))
 	.then((creditsArray) => {
 
 
@@ -84,7 +84,7 @@ function submitAPISearch(searchString) {
 
 		console.log("movieArray after addition of cast names:", movieArray);
 	})
-	.catch(error => console.log(error));
+	.catch((error) => console.log(error));
 
 	});
 }
