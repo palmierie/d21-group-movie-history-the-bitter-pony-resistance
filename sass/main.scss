@@ -13,4 +13,65 @@
 
 .moovie {
     margin-bottom: 20px;
+}body {
+    background-color: lightslategray;
+}
+
+.row {
+    margin-bottom: 7%;
+}
+
+#navBarContainter {
+    position: fixed;
+    width: 100%;
+    color: white;
+    z-index: 12;
+}
+
+#w-uw-Toggle {
+    text-align: center;
+    width: 100%;
+    padding-top: 5%;
+    padding-bottom: 20px;
+}
+
+#searchInput {
+    margin: auto;  
+}
+
+.moovie {
+    margin-bottom: 20px;
+}
+
+#foooter {
+    color: white;
+}
+
+#footerStoof{
+    margin: auto;
+}
+
+#rateYo {
+    margin: auto;
+    z-index: 0;
+}
+
+.card {
+    align-items: center;
+}
+
+#card-link {
+    margin: 5px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+svg {
+    z-index: 0;
+}
+
+.unwatched {
+    display: none; 
 }

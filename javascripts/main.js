@@ -35,10 +35,14 @@ domBuilder.makeMovieCards(testArray);
         });
 
         //Find movies click button id="findMovie"
-        
+        $("#findMovie").click(function(){
+            console.log("clicked on Find Movie");
+        });
 
         //Find my movies click button id="searchMyMovies"
-
+        $("#searchMyMovies").click(function(){
+            console.log("clicked on Search My Movies");
+        });
         
         //Login button click id="loginBtn"
         $("#loginBtn").click(function(){
@@ -52,6 +56,8 @@ domBuilder.makeMovieCards(testArray);
                 // loadMoviesToDOM();
 
             });
+            $("#loginBtn").attr('disabled', true);
+            $("#logoutBtn").attr('disabled', false);
         });
 
         //Logout button click id="logoutBtn"
@@ -59,7 +65,9 @@ domBuilder.makeMovieCards(testArray);
         $("#logoutBtn").on('click', function(){
             console.log("logout clicked");
             user.logOut();
-            // loadMoviesToDOM();            
+            // loadMoviesToDOM();  
+            $("#logoutBtn").attr('disabled', true);
+            $("#loginBtn").attr('disabled', false);          
         });
         
 
@@ -68,9 +76,22 @@ domBuilder.makeMovieCards(testArray);
     /***Watched/Unwatched***/
 
         //Click Funtion for Watched button
+        $("#watched").click(function(){
+            console.log("clicked on Watched toggle button");
+            $('.breadcrumb').toggleClass('unwatched');
+            $("#watched").attr('disabled', true);
+            $("#unwatched").attr('disabled', false);
+            
+        });
 
         //Click Function for Unwatched button
-
+        $("#unwatched").click(function(){
+            console.log("clicked on Unwatched toggle button");
+            $('.breadcrumb').toggleClass('unwatched');
+            $("#unwatched").attr('disabled', true);
+            $("#watched").attr('disabled', false);
+        });
+        
     /******/
 
     /***Card Funtionality***/
@@ -81,7 +102,16 @@ domBuilder.makeMovieCards(testArray);
         //Delete Card id="cardDltBtn"
 
         //Rate Watched Movie
+        $(function () {
+ 
+            $(".rateYo").rateYo({
+                rating: 0,
+                fullStar: true
+            });
+        });
 
     /******/
 
 
+                    
+                    
