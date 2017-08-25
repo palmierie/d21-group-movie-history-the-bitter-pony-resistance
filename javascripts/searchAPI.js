@@ -48,7 +48,7 @@ function submitAPISearch(searchString) {
 	.then((creditsArray) => {
 
 
-		// console.log("creditsArray", creditsArray);
+		console.log("creditsArray", creditsArray);
 
 		let castNames = [];
 
