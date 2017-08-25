@@ -44,7 +44,8 @@ function submitAPISearch(searchString) {
 		promises.push(callAPI.getCastAPI(movieArray[i].id));
 	}
 
-	Promise.all(promises.map((promise) => promise.catch((error) => error)))
+	// Promise.all(promises.map((promise) => promise.catch((error) => error)))
+	Promise.all(promises)
 	.then((creditsArray) => {
 
 
