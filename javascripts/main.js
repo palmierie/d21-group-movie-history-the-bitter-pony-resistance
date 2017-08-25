@@ -21,7 +21,7 @@ let testArray = [
 
 // searchAPI.submitAPISearch("star%20wars");
 
-domBuilder.makeMovieCards(testArray);
+// domBuilder.makeMovieCards(testArray);
 
 /***** Event Listeners *****/
 
@@ -35,6 +35,7 @@ domBuilder.makeMovieCards(testArray);
                 input = input.replace(/ /g, "%20");
                 console.log("Search input to URL ->", input);
                 searchAPI.submitAPISearch(input);
+                // domBuilder.makeMovieCards(searchAPI.submitAPISearch(input));
             }
         });
 

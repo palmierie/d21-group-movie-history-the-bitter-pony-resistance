@@ -3,6 +3,7 @@
 // require("./api-interaction");
 
 var callAPI = require("./api-interaction");
+let domBuilder = require("./dom-builder.js");
 
 // console.log("something is working!");
 // let searchString = "lord%20of%20the";
@@ -84,10 +85,21 @@ function submitAPISearch(searchString) {
 
 
 		console.log("movieArray after addition of cast names:", movieArray);
+
+		domBuilder.makeMovieCards(movieArray);
+
 	})
 	.catch((error) => console.log(error));
 
+
 	});
+	// .then((movieArray) => {
+
+	// 	console.log("movieArray right before dom print", movieArray);
+	// // domBuilder.makeMovieCards(searchAPI.submitAPISearch(input)))
+
+
+	
 }
 
 module.exports = {submitAPISearch};
