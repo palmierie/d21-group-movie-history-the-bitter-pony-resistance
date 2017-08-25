@@ -19,31 +19,35 @@ let testArray = [
           }
 ];
 
-searchAPI.submitAPISearch("star%20wars");
+// searchAPI.submitAPISearch("star%20wars");
 
-domBuilder.makeMovieCards(testArray);
+// domBuilder.makeMovieCards(testArray);
 
 /***** Event Listeners *****/
 
     /***NavBar***/
 
-        //Find movies enter keyboard function id=""
+        //Find movies enter keyboard function id="searchInput"
         let inputAreaFunc = $('#searchInput').keypress(function(event){
             if (event.which == 13) {
                 var input = $("#searchInput").val();
                 console.log("Search Input", input);
+                input = input.replace(/ /g, "%20");
+                console.log("Search input to URL ->", input);
+                searchAPI.submitAPISearch(input);
+                // domBuilder.makeMovieCards(searchAPI.submitAPISearch(input));
             }
         });
 
-        //Find movies click button id="findMovie"
-        $("#findMovie").click(function(){
-            console.log("clicked on Find Movie");
-        });
+        // //Find movies click button id="findMovie"
+        // $("#findMovie").click(function(){
+        //     console.log("clicked on Find Movie");
+        // });
 
-        //Find my movies click button id="searchMyMovies"
-        $("#searchMyMovies").click(function(){
-            console.log("clicked on Search My Movies");
-        });
+        // //Find my movies click button id="searchMyMovies"
+        // $("#searchMyMovies").click(function(){
+        //     console.log("clicked on Search My Movies");
+        // });
         
         //Login button click id="loginBtn"
         $("#loginBtn").click(function(){
