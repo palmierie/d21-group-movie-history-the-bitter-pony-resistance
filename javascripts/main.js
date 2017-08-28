@@ -132,13 +132,13 @@ $("#cardHolder").click((e)=> {
         //Delete Card id="cardDltBtn"
 
         //Rate Watched Movie
-        $(function () {
+        // $(function () {
  
-            $(".rateYo").rateYo({
-                rating: 0,
-                fullStar: true
-            });
-        });
+        //     $(".rateYo").rateYo({
+        //         rating: 0,
+        //         fullStar: true
+        //     });
+        // });
 
     /******/
 
