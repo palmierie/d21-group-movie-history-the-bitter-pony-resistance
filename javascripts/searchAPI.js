@@ -54,6 +54,18 @@ function submitAPISearch(searchString) {
 		console.log("apiMovieArray", apiMovieArray);
 
 		domBuilder.makeMovieCards(apiMovieArray);
+		$(function () {
+
+            $(".rateYo").rateYo({
+                rating: 0,
+                maxValue: 10,
+                numStars: 10,
+                fullStar: true,
+                starWidth: "15px"
+            }).on('rateyo.set', function (e, data) { 
+                console.log("Rating set to " + data.rating + "!");
+            });
+        });
 
 	// var promises = [];
 	// for (var i in apiMovieArray) {

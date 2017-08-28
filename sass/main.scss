@@ -16,8 +16,9 @@ body {
 #w-uw-Toggle {
     text-align: center;
     width: 100%;
-    padding-top: 5%;
-    padding-bottom: 20px;
+    // padding-top: 5%;
+    // padding-bottom: 20px;
+    margin-top: 200px;
 }
 
 #searchInput {
@@ -43,6 +44,8 @@ body {
 
 .card {
     align-items: center;
+    padding: 12px,;
+    min-width: 180px;
 }
 
 #card-link {

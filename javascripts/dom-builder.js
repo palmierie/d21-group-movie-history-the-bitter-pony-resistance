@@ -32,7 +32,7 @@ function makeMovieCards(moviesArr) {
     // $("#cardHolder").append("TEST THIS");
     
 
-    $("#cardHolder").append(`<div class="moovie col-sm-4" id="${moviesArr[i].id}">
+    $("#cardHolder").append(`<div class="moovie col-md-4" id="${moviesArr[i].id}">
                                   <div class="card">
                                       <a href="#" class="movie-details"><img class="card-img-top" src="${moviesArr[i].posterURL}" alt="Card image cap">
                                       <h4 class="card-title">${moviesArr[i].title}</h4></a>
