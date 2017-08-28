@@ -111,11 +111,19 @@ let dbInt = require("./db-interaction.js");
         //Add to watch list 
         //If logged in push to database/else login alert
 $("#cardHolder").click((e)=> {
-    // console.log("e.target.classList", e.target.classList);
+    console.log("e.target.classList", e.target.classList);
     if (e.target.classList.contains("add-to-watchlist")) {
-        // console.log("e.target.parentNode.parentNode.id", e.target.parentNode.parentNode.id);
+        console.log("e.target.parentNode.parentNode.id", e.target.parentNode.parentNode.id);
         dbInt.saveMovie(e.target.parentNode.parentNode.id);
         // console.log("here is apiMovieArray", searchAPI.apiMovieArray);
+    }
+
+    if (e.target.classList.contains("card-title")) {
+        console.log("e.target.parentNode.parentNode.parentNode.id", e.target.parentNode.parentNode.parentNode.id);
+    }
+
+    if (e.target.classList.contains("card-img-top")) {
+        console.log("e.target.parentNode.parentNode.parentNode.id", e.target.parentNode.parentNode.parentNode.id);
     }
     
     // domBuilder.makeMovieCards(movieArray);
