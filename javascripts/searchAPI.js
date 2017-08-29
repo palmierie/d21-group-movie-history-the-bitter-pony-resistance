@@ -39,7 +39,7 @@ function buildMovieObj(movie, value){
 			movieObject.rating = 0;
 			movieObject.watchlist = false;
 			movieObject.watched = false;
-			movieObject.uid = "user id";
+			movieObject.uid = "no id assigned yet";
 			apiMovieArray.push(movieObject);
 		//	console.log('apiMovieArray',apiMovieArray);
 			

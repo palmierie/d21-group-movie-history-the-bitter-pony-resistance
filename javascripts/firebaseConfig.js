@@ -13,7 +13,7 @@ var config = {
   databaseURL: fbData.databaseURL
 };
 
-firebase.getFBsettings = function(){         // <- this is built into firebase app, called above
+firebase.getFBsettings = function(){  // <- this is built into firebase app, called above
 	 console.log("getFBsettings", config);
 	 return config;
 };
