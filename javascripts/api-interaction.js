@@ -1,6 +1,6 @@
 "use strict";
 
-console.log("api-interaction.js");
+//console.log("api-interaction.js");
 let mdb = require("./mdb-getter.js"),
 		k = mdb();
 
@@ -17,7 +17,7 @@ ApiInteraction.getMDBSettings = function() {
 	return config;
 };
 
-console.log('check for movie api key', ApiInteraction.getMDBSettings());
+//console.log('check for movie api key', ApiInteraction.getMDBSettings());
 
 
 ApiInteraction.searchMoviesAPI = (searchString)=> {
