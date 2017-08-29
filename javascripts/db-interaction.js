@@ -35,23 +35,15 @@ function getLast(id) {
 
 }
 
-function saveMovie(id) {
-
-//This code will add the user's movie to firebase
-  // let rootRef = firebase.database().ref().child('movies');
-  // console.log("this is rootRef",rootRef);
-  // console.log("this is the id that was clicked", id);
-  // rootRef.push({
-  //   movies: id
-  // });
+function saveMovie(pushMovieObj) {
   return new Promise((resolve, reject) =>{
     $.ajax({
       url: `${firebase.getFBsettings().databaseURL}/movies.json`,
       type: 'POST',
-      data: JSON.stringify(id),
+      data: JSON.stringify(pushMovieObj),
       dataType: 'json'
-    }).done((id) => {
-      resolve(id);
+    }).done((pushMovieObj) => {
+      resolve(pushMovieObj);
     });
   });
 
