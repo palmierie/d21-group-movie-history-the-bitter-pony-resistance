@@ -17,7 +17,7 @@ ApiInteraction.getMDBSettings = function() {
 	return config;
 };
 
-console.log('check for key', ApiInteraction.getMDBSettings());
+console.log('check for movie api key', ApiInteraction.getMDBSettings());
 
 
 ApiInteraction.searchMoviesAPI = (searchString)=> {
@@ -50,4 +50,3 @@ ApiInteraction.getCastAPI = (movieId)=> {
 };
 
 module.exports = ApiInteraction;
-

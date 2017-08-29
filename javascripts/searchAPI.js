@@ -13,7 +13,7 @@ function submitAPISearch(searchString) {
 	
 	callAPI.searchMoviesAPI(searchString)
 	.then((searchResults) => {
-	
+
 		$.each(searchResults.results, (movie, value) => {
 			buildMovieObj(movie, value);
 		});
