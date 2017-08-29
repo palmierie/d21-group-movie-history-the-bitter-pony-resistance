@@ -36,7 +36,7 @@ function makeMovieCards(moviesArr) {
                                   <div class="card">
                                       <a href="#" class="movie-details"><img class="card-img-top" src="${moviesArr[i].posterURL}" alt="Card image cap">
                                       <h4 class="card-title">${moviesArr[i].title}</h4></a>
-                                      <p class="card-text">${moviesArr[i].release_date}</p>
+                                      <p class="card-date">${moviesArr[i].release_date}</p>
                                       <p class ="card-cast">${moviesArr[i].cast}</p>
                                       <a href="#" class="breadcrumb hidden card-link">Remove From Watchlist</a>
                                       <a href="#" class="add-to-watchlist breadcrumb card-link">Add To Watchlist</a>

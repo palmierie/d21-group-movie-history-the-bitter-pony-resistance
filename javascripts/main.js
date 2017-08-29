@@ -95,6 +95,7 @@ console.log("slider area", sliderArea);
 
 $(".watched-button").click(function(){
     console.log("button is clicked");
+    sliderArea.innerHTML = "";
     cardArea.innerHTML = "";
     sliderArea.innerHTML += `<input type="range" min="0" max="10">`;
     dbInt.getSavedMovies();
@@ -130,11 +131,27 @@ $("#cardHolder").click((e)=> {
     console.log("the card's value", e.title);
     console.log("e.target.classList", e.target.classList.value);
     if (e.target.classList.contains("add-to-watchlist")) {
-        console.log("e.target.parentNode.parentNode.id", e.target.parentNode.parentNode.id);
-        dbInt.saveMovie(e.target.parentNode.parentNode.id)
+       // console.log("card title", e.target.parentNode.getElementsByClassName('card-title')[0].innerHTML);
+
+        let pushMovieObj = {};
+    
+            pushMovieObj.id = e.target.parentNode.parentNode.id;
+			pushMovieObj.title = e.target.parentNode.getElementsByClassName('card-title')[0].innerHTML;
+        	pushMovieObj.cast = e.target.parentNode.getElementsByClassName('card-cast')[0].innerHTML;
+			pushMovieObj.release_date = e.target.parentNode.getElementsByClassName('card-date')[0].innerHTML;
+			pushMovieObj.rating = 0;
+			pushMovieObj.watchlist = true;
+			pushMovieObj.watched = false;
+            pushMovieObj.uid = "user id";
+            
+
+        console.log('pushMovieObj',pushMovieObj);
+        
+        dbInt.saveMovie(pushMovieObj)
         .then();
-        // console.log("here is apiMovieArray", searchAPI.apiMovieArray);
+       
     }
+
 
     if (e.target.classList.contains("card-title")) {
         console.log("e.target.parentNode.parentNode.parentNode.id", e.target.parentNode.parentNode.parentNode.id);
