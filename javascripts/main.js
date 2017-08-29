@@ -86,14 +86,30 @@ let dbInt = require("./db-interaction.js");
     /******/
 
     /***Watched/Unwatched***/
+let sliderArea = document.getElementById("slider-goes-here");
+var slider = "<input type='range' min='0' max='10'>";
+var watchedButton = document.getElementsByClassName("watched-button");
+console.log("watched button", watchedButton);
+console.log("slider area", sliderArea);
 
+
+$(".watched-button").click(function(){
+    console.log("button is clicked");
+    cardArea.innerHTML = "";
+    sliderArea.innerHTML += `<input type="range" min="0" max="10">`;
+    dbInt.getSavedMovies();
+});
+
+$(".unwatched-button").click(function(){
+    // cardArea.innerHTML = "";
+    dbInt.watchedMovie();
+});
         //Click Funtion for Watched button
         $("#watched").click(function(){
             // console.log("clicked on Watched toggle button");
             $('.breadcrumb').toggleClass('unwatched');
             $("#watched").attr('disabled', true);
             $("#unwatched").attr('disabled', false);
-
         });
 
         //Click Function for Unwatched button
@@ -129,6 +145,13 @@ $("#cardHolder").click((e)=> {
     }
 
     // domBuilder.makeMovieCards(movieArray);
+});
+let cardArea = document.getElementById("cardHolder");
+//Watched movies function
+$(".add-to-watchlist").click(function(){
+    
+    // $("#cardHolder").html("");
+    // savedMovies.push(target.parentNode.parentNode.id);
 });
 
         //Delete Card id="cardDltBtn"
