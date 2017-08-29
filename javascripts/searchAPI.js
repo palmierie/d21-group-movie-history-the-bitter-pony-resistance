@@ -56,6 +56,7 @@ function submitAPISearch(searchString) {
 				console.log('apiMovieArray',apiMovieArray);
 
 				domBuilder.makeMovieCards(apiMovieArray);
+				
 
 				$(function () {
 
@@ -73,6 +74,7 @@ function submitAPISearch(searchString) {
 				return apiMovieArray;
 			});
 	}
+	
 
 }
 
