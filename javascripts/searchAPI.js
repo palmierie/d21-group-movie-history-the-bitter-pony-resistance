@@ -20,11 +20,11 @@ function submitAPISearch(searchString) {
 	// console.log("callAPI", callAPI);
 
 	apiMovieArray = [];
-	
+
 
 	callAPI.searchMoviesAPI(searchString)
 	.then((searchResults) => {
-	
+
 		$.each(searchResults.results, (movie, value) => {
 			buildMovieObj(movie, value);
 		});
@@ -54,9 +54,10 @@ function submitAPISearch(searchString) {
 				movieObject.uid = "user id";
 				apiMovieArray.push(movieObject);
 				console.log('apiMovieArray',apiMovieArray);
-				
+
 				domBuilder.makeMovieCards(apiMovieArray);
 				
+
 				$(function () {
 
             $(".rateYo").rateYo({
@@ -65,15 +66,16 @@ function submitAPISearch(searchString) {
                 numStars: 10,
                 fullStar: true,
                 starWidth: "15px"
-            }).on('rateyo.set', function (e, data) { 
+            }).on('rateyo.set', function (e, data) {
                 console.log("Rating set to " + data.rating + "!");
             });
 				});
-					
+
 				return apiMovieArray;
 			});
 	}
 	
+
 }
 
 module.exports = {submitAPISearch, apiMovieArray, testvariable};
