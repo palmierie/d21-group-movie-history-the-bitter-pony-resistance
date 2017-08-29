@@ -5,7 +5,7 @@ let domBuilder = require("./dom-builder.js");
 let searchAPI = require("./searchAPI");
 let dbInt = require("./db-interaction.js");
 
-
+ user.logOut();
 
 //Find movies enter keyboard function id="searchInput"
 let inputAreaFunc = $('#searchInput').keypress(function(event){
@@ -24,6 +24,7 @@ if (event.which == 13) {
 //Login button click id="loginBtn"
 $("#loginBtn").click(function(){
     // console.log("clicked on Signin");
+    user.logOut();
     user.logInGoogle()
     .then((result) => {
         //console.log("result from login", result.user.uid);
@@ -31,11 +32,21 @@ $("#loginBtn").click(function(){
         $("auth-btn").addClass("is-hidden");
         $("#logout").removeClass("is-hidden");
         // loadMoviesToDOM();
-
+        let currentUser = user.getUser();
+        dbInt.getSavedMovies(currentUser)
+        .then((movieData)=>{
+            console.log('currentUser', currentUser);
+            
+            console.log('MOVIES SHOULD LOAD');
+            console.log('movieData', movieData);
+            
+            domBuilder.makeMovieCards(movieData);
+        });
     });
     $("#loginBtn").attr('disabled', true);
     $("#logoutBtn").attr('disabled', false);
 });
+
 
 //Logout button click id="logoutBtn"
 
@@ -96,26 +107,27 @@ $("#cardHolder").click((e)=> {
     console.log("e.target.classList", e.target.classList.value);
     if (e.target.classList.contains("add-to-watchlist")) {
        // console.log("card title", e.target.parentNode.getElementsByClassName('card-title')[0].innerHTML);
-
-        let pushMovieObj = {};
-    
-            pushMovieObj.id = e.target.parentNode.parentNode.id;
-			pushMovieObj.title = e.target.parentNode.getElementsByClassName('card-title')[0].innerHTML;
-        	pushMovieObj.cast = e.target.parentNode.getElementsByClassName('card-cast')[0].innerHTML;
-			pushMovieObj.release_date = e.target.parentNode.getElementsByClassName('card-date')[0].innerHTML;
-			pushMovieObj.rating = 0;
-			pushMovieObj.watchlist = true;
-			pushMovieObj.watched = false;
-            pushMovieObj.uid = user.getUser();
-            
-        console.log('pushMovieObj',pushMovieObj);
+       let currentUser = user.getUser();
+        if(currentUser === null){
+            window.alert("Please Sign Up to Add Movies To Watch List");
+        } else {
+            let pushMovieObj = {};
         
-        dbInt.saveMovie(pushMovieObj)
-        .then();
-       
+                pushMovieObj.id = e.target.parentNode.parentNode.id;
+                pushMovieObj.title = e.target.parentNode.getElementsByClassName('card-title')[0].innerHTML;
+                pushMovieObj.cast = e.target.parentNode.getElementsByClassName('card-cast')[0].innerHTML;
+                pushMovieObj.release_date = e.target.parentNode.getElementsByClassName('card-date')[0].innerHTML;
+                pushMovieObj.rating = 0;
+                pushMovieObj.watchlist = true;
+                pushMovieObj.watched = false;
+                pushMovieObj.uid = user.getUser();
+                
+            console.log('pushMovieObj',pushMovieObj);
+            
+            dbInt.saveMovie(pushMovieObj)
+            .then();
+        }
     }
-
-
     if (e.target.classList.contains("card-title")) {
         console.log("e.target.parentNode.parentNode.parentNode.id", e.target.parentNode.parentNode.parentNode.id);
     }
@@ -130,21 +142,5 @@ let cardArea = document.getElementById("cardHolder");
 //Watched movies function
 $(".add-to-watchlist").click(function(){
     
-    // $("#cardHolder").html("");
-    // savedMovies.push(target.parentNode.parentNode.id);
+   
 });
-
-        //Delete Card id="cardDltBtn"
-
-        //Rate Watched Movie
-        // $(function () {
-
-        //     $(".rateYo").rateYo({
-        //         rating: 0,
-        //         fullStar: true
-        //     });
-        // });
-
-    /******/
-
-// module.exports = {makeTestVar};

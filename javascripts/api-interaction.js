@@ -12,13 +12,11 @@ var config = {
 							databaseURL: k.databaseURL
 };
 
-
 ApiInteraction.getMDBSettings = function() {
 	return config;
 };
 
 //console.log('check for movie api key', ApiInteraction.getMDBSettings());
-
 
 ApiInteraction.searchMoviesAPI = (searchString)=> {
 	return new Promise((resolve, reject) => {
@@ -31,7 +29,6 @@ ApiInteraction.searchMoviesAPI = (searchString)=> {
 		});
 	});
 };
-
 
 ApiInteraction.getCastAPI = (movieId)=> {
 	return new Promise((resolve, reject) => {
