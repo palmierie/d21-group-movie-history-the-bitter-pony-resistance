@@ -21,6 +21,7 @@ function submitAPISearch(searchString) {
 	});
 }
 
+
 function buildMovieObj(movie, value){
 	callAPI.getCastAPI(value.id)
 		.then((castNames)=>{
