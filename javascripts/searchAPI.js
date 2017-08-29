@@ -20,8 +20,8 @@ function submitAPISearch(searchString) {
 	// console.log("callAPI", callAPI);
 
 	apiMovieArray = [];
-	
 
+ 
 	callAPI.searchMoviesAPI(searchString)
 	.then((searchResults) => {
 		// console.log("searchResults", searchResults);
@@ -62,7 +62,7 @@ function submitAPISearch(searchString) {
                 numStars: 10,
                 fullStar: true,
                 starWidth: "15px"
-            }).on('rateyo.set', function (e, data) { 
+            }).on('rateyo.set', function (e, data) {
                 console.log("Rating set to " + data.rating + "!");
             });
         });
@@ -95,7 +95,7 @@ function submitAPISearch(searchString) {
 	// 		}
 
 	// 		for(var k = 0; k < numberCast; k++) {
-				
+
 	// 			// console.log("creditsValue.cast[k]", creditsValue.cast[k]);
 	// 			// console.log("creditsValue.cast[k].name", creditsValue.cast[k].name);
 	// 			eachMovieNames.push(creditsValue.cast[k].name);
@@ -126,7 +126,7 @@ function submitAPISearch(searchString) {
 	// // domBuilder.makeMovieCards(searchAPI.submitAPISearch(input)))
 
 
-	
+
 }
 
 module.exports = {submitAPISearch, apiMovieArray, testvariable};
