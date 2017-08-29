@@ -8,7 +8,7 @@ let searchAPI = require("./searchAPI.js");
 
 console.log("searchAPI.testvariable", searchAPI.testvariable);
 
-
+//??
 function getMovies(user) {
     return new Promise((resolve, reject) => {
         console.log('"url', firebase.getFBsettings().databaseURL);
@@ -24,17 +24,22 @@ function getMovies(user) {
     });
 }
 
+var watchedAndRatedMovies = [];
+var savedMovies = [];
+let cardsGoHere = document.getElementById("cardHolder");
+
 function getLast(id) {
     
 }
 
 function saveMovie(id) {
-
-
+    
+    
 }
 
 function getSavedMovies(uid) {
-
+    cardsGoHere.innerHTML += savedMovies;
+    console.log("saved movies here");
 }
 
 
@@ -43,7 +48,7 @@ function deleteMovie(deleteId) {
 }
 
 function watchedMovie(editId) {
-
+    console.log("watched and rated movies go here");
 }
 
 function rateMovie(editId) {
