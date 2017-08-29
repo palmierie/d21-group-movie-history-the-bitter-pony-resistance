@@ -34,14 +34,13 @@ function buildMovieObj(movie, value){
 			movieObject.posterURL = "img/falloutvaultboythumbsup.jpg";
 			}
 			movieObject.cast = castNames;
-			movieObject.overview = value.overview;
 			movieObject.release_date = value.release_date.slice(0, 4);
 			movieObject.rating = 0;
 			movieObject.watchlist = false;
 			movieObject.watched = false;
 			movieObject.uid = "user id";
 			apiMovieArray.push(movieObject);
-			console.log('apiMovieArray',apiMovieArray);
+		//	console.log('apiMovieArray',apiMovieArray);
 			
 			domBuilder.makeMovieCards(apiMovieArray);
 			
