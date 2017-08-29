@@ -24,37 +24,40 @@ function submitAPISearch(searchString) {
  
 	callAPI.searchMoviesAPI(searchString)
 	.then((searchResults) => {
-		// console.log("searchResults", searchResults);
-		// console.log("searchResults.results", searchResults.results);
-
-		$.each(searchResults.results, (key, value) => {
-			let movieObject = {};
-			movieObject.id = value.id;
-			movieObject.title = value.original_title;
-
-			if(value.poster_path) {
-			movieObject.posterURL = "https://image.tmdb.org/t/p/w185" + value.poster_path;
-			} else {
-			movieObject.posterURL = "img/falloutvaultboythumbsup.jpg";
-			}
-
-			movieObject.overview = value.overview;
-			movieObject.release_date = value.release_date.slice(0, 4);
-			apiMovieArray.push(movieObject);
+	
+		$.each(searchResults.results, (movie, value) => {
+			buildMovieObj(movie, value);
 		});
 
-		// console.log("apiMovieArray", apiMovieArray);
 		return apiMovieArray;
 
-	})
-	.then((apiMovieArray) => {
+	});
 
-		// $("#container").html("");
+	function buildMovieObj(movie, value){
+		callAPI.getCastAPI(value.id)
+			.then((castNames)=>{
+				let movieObject = {};
+				movieObject.id = value.id;
+				movieObject.title = value.original_title;
 
-		console.log("apiMovieArray", apiMovieArray);
-
-		domBuilder.makeMovieCards(apiMovieArray);
-		$(function () {
+				if(value.poster_path) {
+				movieObject.posterURL = "https://image.tmdb.org/t/p/w185" + value.poster_path;
+				} else {
+				movieObject.posterURL = "img/falloutvaultboythumbsup.jpg";
+				}
+				movieObject.cast = castNames;
+				movieObject.overview = value.overview;
+				movieObject.release_date = value.release_date.slice(0, 4);
+				movieObject.rating = 0;
+				movieObject.watchlist = false;
+				movieObject.watched = false;
+				movieObject.uid = "user id";
+				apiMovieArray.push(movieObject);
+				console.log('apiMovieArray',apiMovieArray);
+				
+				domBuilder.makeMovieCards(apiMovieArray);
+				
+				$(function () {
 
             $(".rateYo").rateYo({
                 rating: 0,
@@ -65,6 +68,7 @@ function submitAPISearch(searchString) {
             }).on('rateyo.set', function (e, data) {
                 console.log("Rating set to " + data.rating + "!");
             });
+<<<<<<< HEAD
         });
 
 	// var promises = [];
@@ -127,6 +131,14 @@ function submitAPISearch(searchString) {
 
 
 
+=======
+				});
+					
+				return apiMovieArray;
+			});
+	}
+	
+>>>>>>> 0afb7942d81aaa0e03491b51aa0a9042bcc8c9a1
 }
 
 module.exports = {submitAPISearch, apiMovieArray, testvariable};

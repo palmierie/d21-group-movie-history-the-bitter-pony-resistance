@@ -38,7 +38,11 @@ ApiInteraction.getCastAPI = (movieId)=> {
 		$.ajax({
 			url: `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${ApiInteraction.getMDBSettings().apiKey}`
 		}).done((creditsData) => {
-			resolve(creditsData);
+				let castNames = "";
+				for (var i = 0; i < 5; i++) {
+					castNames += `${creditsData.cast[i].name}` + ' ';
+				}
+			resolve(castNames);
 		}).fail((error) => {
 			reject(error);
 		});
