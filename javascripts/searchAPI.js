@@ -37,9 +37,12 @@ function submitAPISearch(searchString) {
 			} else {
 			movieObject.posterURL = "img/falloutvaultboythumbsup.jpg";
 			}
-
+			movieObject.cast = ""; // ADD CAST ADD CAST ADD CAST
 			movieObject.overview = value.overview;
 			movieObject.release_date = value.release_date.slice(0, 4);
+			movieObject.rating = 0;
+			movieObject.watchlist = false;
+			movieObject.watched = false;
 			apiMovieArray.push(movieObject);
 		});
 
