@@ -11,7 +11,6 @@ let dbInt = require("./db-interaction.js");
 let inputAreaFunc = $('#searchInput').keypress(function(event){
 if (event.which == 13) {
     var input = $("#searchInput").val();
-    // console.log("Search Input", input);
     input = input.replace(/ /g, "%20");
     // console.log("Search input to URL ->", input);
     searchAPI.submitAPISearch(input);
