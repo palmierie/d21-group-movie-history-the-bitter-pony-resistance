@@ -66,6 +66,10 @@ svg {
     display: none; 
 }
 
+
+.hidden {
+    display: none;
+  
 body {
     background-image: url("http://www.publicdomainpictures.net/pictures/30000/velka/film-background-1334067655hUG.jpg");
 }
@@ -73,7 +77,6 @@ body {
 #navBarContainter {
     color: white;
 }
-
 
 .btn-outline-primary {
     color: maroon;
@@ -85,4 +88,5 @@ body {
 .btn-outline-primary:disabled {
     color: maroon;
     background-color: transparent;
+
 }

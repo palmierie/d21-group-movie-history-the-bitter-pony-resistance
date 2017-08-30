@@ -19,7 +19,7 @@ function makeMovieCards(moviesArr) {
                                         <p class ="card-cast">${moviesArr[i].cast}</p>
                                         <a href="#" class="breadcrumb hidden card-link">Remove From Watchlist</a>
                                         <a href="#" class="add-to-watchlist breadcrumb card-link">Add To Watchlist</a>
-                                        <a class="rateYo card-link breadcrumb" style="margin:auto"></a>
+                                        <a class="rateYo card-link hidden breadcrumb" style="margin:auto"></a>
                                     </div>
                                 </div>`
         );

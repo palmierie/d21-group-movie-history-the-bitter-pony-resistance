@@ -73,7 +73,9 @@ $(".watched-button").click(function(){
     sliderArea.innerHTML = "";
     cardArea.innerHTML = "";
     sliderArea.innerHTML += `<input type="range" min="0" max="10">`;
+    $("div").removeClass("hidden");
     dbInt.getSavedMovies();
+
 });
 
 $(".unwatched-button").click(function(){
