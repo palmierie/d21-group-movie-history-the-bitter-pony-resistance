@@ -26,11 +26,6 @@ function getMovies(user) {
 }
 
 
-var watchedAndRatedMovies = [];
-var savedMovies = [];
-let cardsGoHere = document.getElementById("cardHolder");
-
-
 function getLast(id) {
 
 }
@@ -49,11 +44,15 @@ function saveMovie(pushMovieObj) {
 
 }
 
-function getSavedMovies(uid) {
-    cardsGoHere.innerHTML += savedMovies;
-    console.log("saved movies here");
+function getSavedMovies(userID) {
+   return new Promise((resolve, reject) =>{
+    $.ajax({
+      url: `${firebase.getFBsettings().databaseURL}/movies.json?orderby="uid"$equalTo="${userID}"`
+    }).done((movieData) => {
+      resolve(movieData);
+    });
+  });
 }
-
 
 function deleteMovie(deleteId) {
 
