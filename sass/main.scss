@@ -26,6 +26,7 @@ body {
 
 .moovie {
     margin-bottom: 20px;
+    display: flex;
 }
 
 #foooter {
@@ -45,6 +46,8 @@ body {
     align-items: center;
     padding: 12px,;
     min-width: 180px;
+    background-color: darkslategray;
+
 }
 
 #card-link {
@@ -77,4 +80,9 @@ body {
     background-color: transparent;
     background-image: none;
     border-color: maroon;
+}
+
+.btn-outline-primary:disabled {
+    color: maroon;
+    background-color: transparent;
 }
